@@ -1,0 +1,79 @@
+$sidebar:280px;
+
+
+// 行動版(預設)
+.sidebar{
+    margin-left: -$sidebar;
+     width: $sidebar;
+     transition: margin-left 0.25s;
+     position: fixed;
+     top: 0px;
+   
+
+     .sidebar-link{
+        color: $dark;
+        display: block;
+        text-decoration: none;
+        padding: 0.875rem 0;
+        &:hover{
+            background-color:rgba($primary, 0.16)
+        }
+     }
+     .sidebar-link.active{
+        position: relative;
+        color: $primary;
+        background-color:rgba($primary, 0.16);
+        &::after{
+            content:"";
+            position: absolute;
+            top: 0;
+            left: 2px;
+            height: 100%;
+            width: 3px;
+            background: $primary;
+        }
+     }
+}
+
+.main{
+    width: 100%;
+}
+
+.sidebar-toggle{
+    .sidebar{
+        margin-left: 0;
+    }
+    .main{
+        transition: margin-left 0.25s;
+        margin-left: $sidebar;
+    }
+}
+
+
+// 電腦版(up)
+
+@include media-breakpoint-up(lg) {
+
+    .sidebar{
+        margin-left: 0;
+        width: $sidebar;
+      }
+   .main{
+       width: calc(100vw - #{$sidebar});
+       margin-left:$sidebar;
+       transition: margin-left 0.25s;
+   }
+
+
+   .sidebar-toggle{
+    .sidebar{
+      margin-left: -$sidebar;
+    }
+    .main{
+        width: 100%;
+        margin-left: 0;
+    }
+}
+
+
+ }

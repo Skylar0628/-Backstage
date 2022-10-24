@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+
+    <p class="demo"></p>
+    
+
+    <script type="text/javascript">
+         const people = [
+          {
+            name:'小名',
+            order: '牛肉麵',
+            price: 120
+          },
+          {
+            name:'mine',
+            order: '沙拉',
+            price: 60
+          },
+          {
+            name:'chaeyoung',
+            order: '燕麥奶',
+            price: 85
+          },
+          {
+            name:'momo',
+            order: '豬腳',
+            price: 115
+          }
+          
+         ];
+
+         const neworder = []
+         
+         people.forEach((i,index)=>{
+            neworder.push(i.name)
+         })
+
+        console.log(neworder)
+
+
+    const a = []
+
+    people.forEach((i,index)=>{
+       a[index] = {
+         ...i,
+         newprice: i.price*0.5
+       }
+    })
+
+    console.log(a)
+
+
+
+    // 選出超過80元的價格 加一顆滷蛋
+    
+    const over =  []
+
+    people.forEach((i,index)=>{
+        if (i.price >= 80){
+            over.push(i)
+        }
+    })
+
+    // 
+
+    let count = 0
+    
+    people.forEach((i,index)=>{
+        if (i.order === '牛肉麵' || i.order === '沙拉'){
+            count = index
+        }
+    })
+
+    console.log(count)
+
+    </script>
+</body>
+</html>
